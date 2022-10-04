@@ -10,11 +10,13 @@ const {
   getPostsByTagName
 } = require('./index');
 
+
+
 async function dropTables() {
+
   try {
     console.log("Starting to drop tables...");
 
-    // have to make sure to drop in correct order
     await client.query(`
       DROP TABLE IF EXISTS post_tags;
       DROP TABLE IF EXISTS tags;
@@ -28,6 +30,8 @@ async function dropTables() {
     throw error;
   }
 }
+
+
 
 async function createTables() {
   try {
@@ -67,6 +71,8 @@ async function createTables() {
   }
 }
 
+
+
 async function createInitialUsers() {
   try {
     console.log("Starting to create users...");
@@ -96,6 +102,8 @@ async function createInitialUsers() {
     throw error;
   }
 }
+
+
 
 async function createInitialPosts() {
   try {
@@ -129,6 +137,8 @@ async function createInitialPosts() {
   }
 }
 
+
+
 async function rebuildDB() {
   try {
     client.connect();
@@ -142,6 +152,8 @@ async function rebuildDB() {
     throw error;
   }
 }
+
+
 
 async function testDB() {
   try {
@@ -189,6 +201,7 @@ async function testDB() {
     throw error;
   }
 }
+
 
 
 rebuildDB()
