@@ -50,7 +50,7 @@ const tagsRouter = require('./tags');
 apiRouter.use('/tags', tagsRouter);
 
 
-apiRouter.use((error, req, res, next) => {
+apiRouter.use((error, res) => {
     res.send({
         name: error.name,
         message: error.message
