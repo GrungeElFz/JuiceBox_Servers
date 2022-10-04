@@ -8,7 +8,7 @@ tagsRouter.use((req, res, next) => {
     next();
 });
 
-tagsRouter.get('/', async (req, res, next) => {
+tagsRouter.get('/', async (res, next) => {
     try {
         const tags = await client.query(
             `SELECT * FROM tags`
@@ -23,7 +23,7 @@ tagsRouter.get('/', async (req, res, next) => {
     }
 });
 
-tagsRouter.get('/:tagName/posts', async (req, res, next) => {
+tagsRouter.get('/:tagName/posts', async (res, next) => {
     try {
         const tags = await getPostsByTagName()
 
