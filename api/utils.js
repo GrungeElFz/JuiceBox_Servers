@@ -1,4 +1,4 @@
-const requireUser = (req, res, next) => {
+const requireUser = (req, next) => {
     if (!req.user) {
         next({
             name: "MissingUserError",
